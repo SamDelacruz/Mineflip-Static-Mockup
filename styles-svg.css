@@ -1,0 +1,35 @@
+body {
+  margin: 2vw;
+  background-color: #001f3f;
+}
+
+svg text {
+  user-select: none;
+  cursor: default;
+}
+
+.card, .card * {
+  transition: all 0.3s ease;
+}
+
+.card rect {
+    fill: #eee;
+}
+
+rect.shadow {
+  fill: #aaa;
+}
+
+.card:hover rect {
+  fill: #DDDDDD;
+}
+
+
+.card:active {
+  transform: translate(0, 0.5em);
+  transition: all 0.2s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:active rect {
+  fill: #efefef;
+}
