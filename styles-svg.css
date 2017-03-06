@@ -13,7 +13,7 @@ svg text {
 }
 
 .card rect {
-    fill: #eee;
+    fill: #ddd;
 }
 
 rect.shadow {
@@ -21,7 +21,7 @@ rect.shadow {
 }
 
 .card:hover rect {
-  fill: #DDDDDD;
+  fill: #fff;
 }
 
 
@@ -31,5 +31,5 @@ rect.shadow {
 }
 
 .card:active rect {
-  fill: #efefef;
+  fill: #ccc;
 }
