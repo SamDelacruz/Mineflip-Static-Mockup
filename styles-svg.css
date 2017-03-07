@@ -1,19 +1,23 @@
 body {
-  background-color: #001f3f;
+  /*background-color: #001f3f;*/
+  background-color: #e9ebee;
 }
-
-svg { position:absolute; margin-top: auto; margin-bottom: auto; height:100%; width:100% }
 
 svg text {
   user-select: none;
   cursor: default;
 }
 
-.card, .card * {
+.heading {
+  padding: 0.1em;
+  margin: 0.2em;
+}
+
+.tile, .tile * {
   transition: all 0.3s ease;
 }
 
-.card rect {
+.tile rect {
     fill: #ddd;
 }
 
@@ -21,16 +25,16 @@ rect.shadow {
   fill: #aaa;
 }
 
-.card:hover rect {
-  fill: #fff;
+.tile:hover rect {
+  fill: #ccc;
 }
 
 
-.card:active {
+.tile:active {
   transform: translate(0, 0.5em);
   transition: all 0.2s cubic-bezier(.25,.8,.25,1);
 }
 
-.card:active rect {
+.tile:active rect {
   fill: #ccc;
 }
