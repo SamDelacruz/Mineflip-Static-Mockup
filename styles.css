@@ -1,213 +1,38 @@
-* , *:before, *:after{
-     box-sizing:border-box;
-     -moz-box-sizing:border-box;
-     -webkit-box-sizing:border-box;
-     -ms-box-sizing:border-box;
-   }
-
 body {
-  background-color: #F2F2F2;
-  font-family: sans-serif;
-  color: #001f3f;
-  margin: 0;
-  padding: 0;
+  background-color: #e9ebee;
 }
 
-h1 {
-  text-align: center;
-  font-size: 10vmin;
-}
-
-header {
-  background-color: #001f3f;
-  color: #F2F2F2;
-  padding: 5vmin;
-  height: 2vmin;
-  line-height: 0;
-}
-
-button.Primary {
-  position: relative;
-  background-color: #DDDDDD;
-  color: #444444;
-  box-shadow: 0 0.1vmin 0.3vmin rgba(0,0,0,0.12), 0 0.1vmin 0.2vmin rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  border-radius: 1vmin;
-  font-size: 4vmin;
-  border: 0;
-  outline: none;
-  padding: 5vmin;
-}
-
-button.Primary:hover {
-  box-shadow: 0 1.4vmin 2.8vmin rgba(0,0,0,0.25), 0 1vmin 1vmin rgba(0,0,0,0.22);
-}
-
-table.Board-Table {
-  position: relative;
-  z-index: 1;
-  font-family: monospace;
-  border: 0px solid #0074D9;
-  text-align: center;
-  border-spacing: 3vmin;
-  background-color: #001f3f;
-  padding: 0;
+svg.board {
   width: 100%;
-  border-collapse: separate;
-  padding: 5vmin;
 }
 
-td.Cell {
-  position: relative;
-  border: 0;
-  width: calc((100vmin / 6) - (7 * 3vmin));
-  max-height: calc((100vmin / 6) - (7 * 3vmin));
-  border-radius: 1vmin;
-  font-size: 5vmin;
-  background-color: #AAAAAA;
-  padding: 0;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+svg text {
+  user-select: none;
+  cursor: default;
 }
 
-.Score {
-  font-family: monospace;
+.tile, .tile * {
+  transition: all 0.3s ease;
 }
 
-.Cell .Card {
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  position: absolute;
-  top: 0;
-  z-index: 2;
-  background-color: #DDDDDD;
-  color: #777;
-  font-size: 5vmin;
-  border-radius: 1vmin;
-  width: 100%;
-  height: 100%;
-  line-height: 11vmin;
+.tile rect {
+    fill: #ddd;
 }
 
-.Cell:hover, .Cell:hover .Card {
-  cursor: pointer;
+rect.shadow {
+  fill: #aaa;
 }
 
-.Cell:hover .Card {
-  transform: translate(0, -1vmin);
-  color: #0074D9;
-}
-
-.Cell::before {
-  position: absolute;
-  border: 1vmin solid black;
-  width: 4vmin; height: 0;
-  display: block;
-  content: '';
-  top: 50%;
-  z-index: -1;
-  right: -3vmin;
-  margin-top: -1vmin;
-}
-
-.Cell::after {
-  position: absolute;
-  border: 1vmin solid black;
-  width: 0; height: 4vmin;
-  display: block;
-  content: '';
-  left: 50%;
-  z-index: -1;
-  top: -3vmin;
-  margin-left: -1vmin;
-}
-
-.Cell::before, .Cell::after {
-  pointer-events: none;
-}
-
-tr:first-child > .Cell::after,
-td:last-child.Cell::after,
-td:last-child.Cell::before,
-tr:last-child > .Cell::before {
-  display: none;
-}
-
-.Red-Row td::before {
-  border-color: #FF4136;
-}
-
-.Red-Row > .Hint, .Row > .Hint-Red {
-  border-color: #FF4136;
-  background-color: #FF4136;
-}
-
-.Green-Row td::before {
-  border-color: #2ECC40;
-}
-
-.Green-Row > .Hint, .Row > .Hint-Green {
-  border-color: #2ECC40;
-  background-color: #2ECC40;
-}
-
-.Yellow-Row td::before {
-  border-color: #FFDC00;
-}
-
-.Yellow-Row > .Hint, .Row > .Hint-Yellow {
-  border-color: #FFDC00;
-  background-color: #FFDC00;
-}
-
-.Blue-Row td::before {
-  border-color: #0074D9;
-}
-
-.Blue-Row > .Hint, .Row > .Hint-Blue {
-  border-color: #0074D9;
-  background-color: #0074D9;
-}
-
-.Purple-Row td::before {
-  border-color: #B10DC9;
-}
-
-.Purple-Row > .Hint, .Row > .Hint-Purple {
-  border-color: #B10DC9;
-  background-color: #B10DC9;
-}
-
-.Red-Col::after {
-  border-color: #FF4136;
-}
-
-.Green-Col::after {
-  border-color: #2ECC40;
-}
-
-.Yellow-Col::after {
-  border-color: #FFDC00;
-}
-
-.Blue-Col::after {
-  border-color: #0074D9;
-}
-
-.Purple-Col::after {
-  border-color: #B10DC9;
+.tile:hover rect {
+  fill: #ccc;
 }
 
 
-.Hint:hover {
-  cursor: auto;
+.tile:active {
+  transform: translate(0, 0.5em);
+  transition: all 0.2s cubic-bezier(.25,.8,.25,1);
 }
 
-.container {
-  width: 100vmin;
-  height: 100vmin;
-  max-height: 100vmin;
-  max-width: 100vmin;
-  margin: auto;
-  position: absolute;
-  top:0;bottom:0; /* vertical center */
-  left:0;right:0; /* horizontal center */
+.tile:active rect {
+  fill: #ccc;
 }
